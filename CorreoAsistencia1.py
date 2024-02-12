@@ -33,15 +33,17 @@ def attendance():
         for key, value in request.form.items():
             if key.startswith('attendance_'):
                 student_code = key.split('_')[1]
-                attendance_status = value  # Obtener el valor de asistencia o falta
+                attendance_status = value
 
-                # Verificar si el código del estudiante existe en el DataFrame
+                # Inicializar student_name como una cadena vacía
+                student_name = ""
+
                 if df['CodigoAlumno'].isin([student_code]).any():
                     student_name = df.loc[df['CodigoAlumno'] == student_code, 'NombreAlumno'].iloc[0]
-                    print(f"Código: {student_code}, Nombre: {student_name}, Asistencia: {attendance_status}")
                     df.loc[df['CodigoAlumno'] == student_code, attendance_date] = attendance_status
-                else:
-                    print(f"Código de estudiante no encontrado: {student_code}, {student_name}, {attendance_status}")
+
+                # Mover la impresión fuera del if para evitar el UnboundLocalError
+                print(f"Código: {student_code}, Nombre: {student_name}, Asistencia: {attendance_status}")
 
         # Guardar los cambios en el archivo Excel
         with pd.ExcelWriter('cursos2024a.xlsx', mode='a', engine='openpyxl', if_sheet_exists='replace') as writer:
