@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Selección de Curso</title>
+</head>
+<body>
+    <h1>Seleccione un Curso para Pasar Lista</h1>
+    <form action="/" method="post">
+        <select name="course">
+            {% for course in courses %}
+                <option value="{{ course }}">{{ course }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Seleccionar Curso">
+    </form>
+</body>
+</html>
