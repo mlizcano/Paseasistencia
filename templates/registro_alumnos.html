@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro de Asistencia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Registro de Asistencias</h2>
+    <form method="post">
+        <label for="curso">Seleccione el curso:</label>
+        <select name="curso" required>
+            {% for curso in cursos %}
+            <option value="{{ curso }}" {% if curso == curso_seleccionado %}selected{% endif %}>{{ curso }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Seleccionar Curso">
+    </form>
+
+    {% if nombres %}
+    <form method="post">
+        <input type="hidden" name="curso" value="{{ curso_seleccionado }}">
+        <label for="fecha">Seleccione la fecha:</label>
+        <input type="date" id="fecha" name="fecha" required><br><br>
+        <table>
+        <table>
+            <tr>
+                <th>Tutor</th>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Asistencia</th>
+            </tr>
+            {% for i in range(nombres|length) %}
+            <tr>
+                <td>{{ tutores[i] }}</td>
+                <td>{{ codigos[i] }}</td>
+                <td>{{ nombres[i] }}</td>
+                <td>
+                    <select name="asistencia">
+                        <option value="A">Asistencia</option>
+                        <option value="F">Falta</option>
+                        <option value="R">Retardo</option>
+                        <option value="J">Justificada</option>
+                    </select>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <br>
+        <input type="submit" value="Guardar Asistencias">
+    </form>
+    {% endif %}
+</body>
+</html>

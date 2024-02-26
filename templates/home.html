@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAITANA - Sistema Escolar</title>
+    <!-- Enlace a Font Awesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Estilos CSS -->
+    <style>
+        /* Estilos para la barra de navegación */
+        .navbar {
+            overflow: hidden;
+            background-color: #2a8c4a;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #64c27b;
+            color: black;
+        }
+        /* Estilos para los submenús */
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #64c27b;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <div class="navbar">
+        <a href="/"><i class="fas fa-home"></i> Inicio</a>
+
+        <!-- Menú desplegable para Registro -->
+        <div class="dropdown">
+            <button class="dropbtn"><i class="fas fa-edit"></i> Registro
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/registro/alumnos"><i class="fas fa-user-graduate"></i> Alumnos</a>
+                <a href="/registro/carrera"><i class="fas fa-book-open"></i> Carrera</a>
+                <a href="/registro/cursos"><i class="fas fa-chalkboard-teacher"></i> Cursos</a>
+                <a href="/registro/profesor"><i class="fas fa-user-tie"></i> Profesor</a>
+            </div>
+
+        </div>
+
+        <!-- Menú desplegable para Asistencias -->
+        <div class="dropdown">
+            <button class="dropbtn"><i class="fas fa-clipboard-list"></i> Asistencias
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/asistencias/pasar_lista"><i class="fas fa-clipboard-list"></i> Pasar Lista</a>
+                <a href="/asistencias/asistencias_justificar_falta"><i class="fas fa-user-times"></i> Justificar Falta</a>
+                <a href="/asistencias/mostrar_reporte"><i class="fas fa-chart-bar"></i> Mostrar Reporte</a>
+                <a href="/asistencias/enviar_correo"><i class="fas fa-envelope"></i> Enviar Correo</a>
+              </div>
+        </div>
+
+        <a href="/tareas"><i class="fas fa-tasks"></i> Tareas</a>
+
+        <!-- Menú desplegable para Mensaje -->
+        <div class="dropdown">
+            <button class="dropbtn"><i class="fas fa-envelope"></i> Mensaje
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/mensaje/whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="/mensaje/texto"><i class="fas fa-sms"></i> Texto</a>
+            </div>
+
+        </div>
+
+        <a href="/salir"><i class="fas fa-sign-out-alt"></i> Salir</a>
+    </div>
+    <footer id="footer">
+        <strong>Sistema de Gestión de Prestadores de Servicio Social</strong><br>
+        <strong>@Dr. Miguel Lizcano Sánchez</strong>
+        <a href="mailto:miguel.lizcano@academicos.udg.mx">miguel.lizcano@academicos.udg.mx</a>
+    </footer>
+</body>
+</html>
